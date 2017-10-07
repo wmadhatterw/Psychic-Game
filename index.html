@@ -11,13 +11,14 @@
 	 <!-- Display basic Text -->
 
 		<div id = "game">
-			 <h1>The Psychic Game</h1>
+			 <h1>The Psychic Game</h1><br>
 			 <h2> Guess what letter I'm Thinking of!</h2>
+			 <br>
 
-			 <p>Wins: </p>
-			 <p>Losses: </p>
-			 <p>Guesses Left: </p>
-			 <p>Your Guesses so far: </p>
+			 <p>Wins: </p><br>
+			 <p>Losses: </p><br>
+			 <p>Guesses Left: </p><br>
+			 <p>Your Guesses so far: </p><br>
 
 		</div>
 	<!-- Run Java Script -->
@@ -37,48 +38,45 @@
 		console.log(computerGuess)
 
 
-	document.onkeyup = function(event) {
+		document.onkeyup = function(event) {
 
 			var userGuess = [event.key];
 			guesses[guesses.length] ="" + userGuess;
 			console.log(guesses)
 		
 
-		if (event.keyCode >= 65 && event.keyCode <= 90){
-    		// alert("input was a-z");
-// Print info into innerHTML
-			console.log(userGuess)
-			console.log(computerGuess)
-			if((userGuess) == (computerGuess)){
-					 wins++;
-					 left = 9;
-					 guesses = [];
-					 computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+			if (event.keyCode >= 65 && event.keyCode <= 90){
+	    		// alert("input was a-z");
+				// Print info into innerHTML
+				console.log(userGuess)
+				console.log(computerGuess)
+				if((userGuess) == (computerGuess)){
+						 wins++;
+						 left = 9;
+						 guesses = [];
+						 computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-					console.log(computerGuess)
-					 
+						console.log(computerGuess)
+						 
 				}
-				else {left = left - 1
-					if(left === 0){
-						losses++;
-						left = 9;
+					else {left = left - 1
+						if(left === 0){
+							losses++;
+							left = 9;
+						}
 					}
-				}
-			
-			var html =
-						"<h1>The Psychic Game</h1><h2> Guess what letter I'm Thinking of!</h2>" +
-						"<p>Wins: " + wins + "</p>" +
-						"<p>Losses: " + losses + "</p>" +
-						"<p>Guesses Left: " + left + "</p>" +
-						"<p>Your Guesses so far: " + guesses + "</p>";
-						
-					document.querySelector("#game").innerHTML = html;
+				
+				var html =
+							"<br><h1>The Psychic Game</h1><h2> Guess what letter I'm Thinking of!</h2><br>" +
+							"<p>Wins: " + wins + "</p><br>" +
+							"<p>Losses: " + losses + "</p><br>" +
+							"<p>Guesses Left: " + left + "</p><br>" +
+							"<p>Your Guesses so far: " + guesses + "</p>";
+							
+						document.querySelector("#game").innerHTML = html;
 
+			}
 		}
-
-		
-	
-	}
 
 
 	</script>
